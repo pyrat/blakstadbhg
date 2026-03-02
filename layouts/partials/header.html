@@ -1,0 +1,123 @@
+<header class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+        x-data="{ scrolled: false, mobileOpen: false }"
+        x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 40)"
+        :class="scrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : '{{ if .IsHome }}bg-transparent{{ else }}bg-white/95 backdrop-blur-md shadow-sm{{ end }}'">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+      {{/* Logo */}}
+      <a href="{{ "/" | relLangURL }}" class="flex items-center gap-2 group" aria-label="{{ .Site.Title }}">
+        <div class="w-9 h-9 rounded-xl bg-forest-800 flex items-center justify-center shadow-md group-hover:bg-forest-700 transition-colors">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4.5 9.5L12 3l7.5 6.5V20a1 1 0 01-1 1H14v-5h-4v5H5.5a1 1 0 01-1-1V9.5z" />
+          </svg>
+        </div>
+        <span :class="scrolled ? 'text-forest-900' : '{{ if .IsHome }}text-white{{ else }}text-forest-900{{ end }}'"
+              class="font-serif font-bold text-lg leading-tight transition-colors">
+          Blakstad<br class="hidden sm:block" />
+          <span class="text-sm font-normal font-sans" :class="scrolled ? 'text-forest-600' : '{{ if .IsHome }}text-white/80{{ else }}text-forest-600{{ end }}'">Naturbarnehage</span>
+        </span>
+      </a>
+
+      {{/* Desktop nav */}}
+      <div class="hidden lg:flex items-center gap-1">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}"
+           class="px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-150
+                  {{ if $currentPage.IsHome }}text-white/90 hover:text-white hover:bg-white/10
+                  {{ else }}text-gray-700 hover:text-forest-700 hover:bg-forest-50{{ end }}">
+          {{ .Name }}
+        </a>
+        {{ end }}
+      </div>
+
+      {{/* Right side: lang switch + CTA */}}
+      <div class="hidden lg:flex items-center gap-3">
+        {{/* Language switcher */}}
+        {{ if .IsTranslated }}
+        <div class="flex items-center gap-1 text-xs font-semibold">
+          {{ range .AllTranslations }}
+          <a href="{{ .Permalink }}"
+             class="px-2 py-1 rounded-md uppercase tracking-wide transition-colors
+                    {{ if eq .Language.Lang $.Site.Language.Lang }}
+                      bg-forest-800 text-white
+                    {{ else }}
+                      {{ if $.IsHome }}text-white/70 hover:text-white hover:bg-white/10{{ else }}text-gray-500 hover:text-forest-700{{ end }}
+                    {{ end }}">
+            {{ .Language.Lang }}
+          </a>
+          {{ end }}
+          {{/* Always show current lang too if not translated */}}
+        </div>
+        {{ else }}
+        <div class="flex items-center gap-1 text-xs font-semibold">
+          <span class="px-2 py-1 rounded-md uppercase tracking-wide bg-forest-800 text-white">{{ .Site.Language.Lang }}</span>
+        </div>
+        {{ end }}
+
+        <a href="{{ "/campaign/pamelding/" | relLangURL }}" class="btn-primary text-xs">
+          {{ i18n "nav_enroll" }}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      {{/* Mobile hamburger */}}
+      <button @click="mobileOpen = !mobileOpen"
+              class="lg:hidden p-2 rounded-lg transition-colors"
+              :class="scrolled ? 'text-gray-700 hover:bg-gray-100' : '{{ if .IsHome }}text-white hover:bg-white/10{{ else }}text-gray-700 hover:bg-gray-100{{ end }}'"
+              aria-label="Toggle menu"
+              :aria-expanded="mobileOpen">
+        <svg x-show="!mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg x-show="mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    {{/* Mobile menu */}}
+    <div x-show="mobileOpen"
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 -translate-y-2"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-2"
+         class="lg:hidden bg-white rounded-2xl shadow-xl mx-0 mb-4 overflow-hidden border border-gray-100">
+      <div class="p-4 space-y-1">
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}"
+           @click="mobileOpen = false"
+           class="block px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-forest-50 hover:text-forest-800 transition-colors">
+          {{ .Name }}
+        </a>
+        {{ end }}
+      </div>
+      <div class="px-4 pb-4 pt-1 border-t border-gray-100 flex items-center justify-between">
+        {{/* Lang switcher mobile */}}
+        <div class="flex gap-2">
+          {{ range .AllTranslations }}
+          <a href="{{ .Permalink }}"
+             class="px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wide
+                    {{ if eq .Language.Lang $.Site.Language.Lang }}bg-forest-800 text-white{{ else }}bg-gray-100 text-gray-600 hover:bg-gray-200{{ end }}">
+            {{ .Language.Lang }}
+          </a>
+          {{ end }}
+        </div>
+        <a href="{{ "/campaign/pamelding/" | relLangURL }}" class="btn-primary text-xs py-2.5">
+          {{ i18n "nav_enroll" }}
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+{{/* Spacer for fixed header on non-hero pages */}}
+{{ if not .IsHome }}
+<div class="h-16 md:h-20"></div>
+{{ end }}

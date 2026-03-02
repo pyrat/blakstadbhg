@@ -1,0 +1,29 @@
+[[main]]
+name   = "About"
+url    = "/en/om/"
+weight = 1
+
+[[main]]
+name   = "Nature Kindergarten"
+url    = "/en/natur/"
+weight = 2
+
+[[main]]
+name   = "Healthy Food"
+url    = "/en/mat/"
+weight = 3
+
+[[main]]
+name   = "Traditions"
+url    = "/en/tradisjonar/"
+weight = 4
+
+[[main]]
+name   = "Documents"
+url    = "/en/dokument/"
+weight = 5
+
+[[main]]
+name   = "Contact"
+url    = "/en/kontakt/"
+weight = 6

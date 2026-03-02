@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-gray-800 bg-sand-50 antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full bg-forest-800 text-white font-semibold text-sm tracking-wide shadow-lg hover:bg-forest-700 active:bg-forest-900 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-forest-400/40;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-forest-800 text-forest-800 font-semibold text-sm tracking-wide hover:bg-forest-800 hover:text-white active:bg-forest-900 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-forest-400/40;
+  }
+  .btn-white {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-forest-800 font-semibold text-sm tracking-wide shadow-lg hover:bg-sand-100 active:bg-sand-200 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-white/40;
+  }
+  .card {
+    @apply bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden;
+  }
+  .section-label {
+    @apply inline-block text-xs font-semibold tracking-widest uppercase text-forest-600 mb-3;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-serif font-bold text-forest-900 leading-tight;
+  }
+  .section-body {
+    @apply text-gray-600 text-lg leading-relaxed;
+  }
+  .nav-link {
+    @apply text-sm font-medium text-gray-700 hover:text-forest-700 transition-colors duration-150 px-1 py-2 border-b-2 border-transparent hover:border-forest-500;
+  }
+  .nav-link-active {
+    @apply text-sm font-semibold text-forest-800 border-b-2 border-forest-600 px-1 py-2;
+  }
+}

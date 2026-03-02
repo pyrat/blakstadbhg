@@ -1,0 +1,394 @@
+{{ define "main" }}
+
+{{/* ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ */}}
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  {{/* Background gradient — replace with real photo via CSS bg-image when available */}}
+  <div class="absolute inset-0 bg-gradient-to-br from-forest-900 via-forest-800 to-forest-700">
+    {{/* Decorative nature pattern overlay */}}
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22 opacity=%220.3%22/><path d=%22M50 10 L50 90 M10 50 L90 50%22 stroke=%22white%22 stroke-width=%220.3%22 opacity=%220.2%22/></svg>');"></div>
+    {{/* Soft bokeh blobs */}}
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-forest-600/30 blur-3xl"></div>
+    <div class="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-moss-500/20 blur-3xl"></div>
+    <div class="absolute top-1/2 right-1/3 w-64 h-64 rounded-full bg-sand-200/10 blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
+    <div class="max-w-3xl">
+      <span class="inline-flex items-center gap-2 text-forest-300 text-sm font-semibold tracking-widest uppercase mb-6">
+        <span class="w-8 h-px bg-forest-400"></span>
+        {{ if eq .Site.Language.Lang "nb" }}Tusvik, Sykkylven{{ else }}Tusvik, Sykkylven, Norway{{ end }}
+      </span>
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[1.1] mb-6">
+        {{ if eq .Site.Language.Lang "nb" }}
+        Blakstad<br /><span class="text-forest-300">Naturbarnehage</span>
+        {{ else }}
+        Blakstad<br /><span class="text-forest-300">Nature Kindergarten</span>
+        {{ end }}
+      </h1>
+      <p class="text-white/80 text-xl md:text-2xl leading-relaxed mb-10 font-light max-w-xl">
+        {{ .Site.Language.Params.tagline }}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="{{ "/kontakt/" | relLangURL }}" class="btn-white text-base px-8 py-4">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          {{ i18n "hero_cta_primary" }}
+        </a>
+        <a href="{{ "/om/" | relLangURL }}" class="btn-secondary border-white/50 text-white hover:bg-white hover:text-forest-900 text-base px-8 py-4">
+          {{ i18n "hero_cta_secondary" }}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {{/* Scroll indicator */}}
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 text-xs animate-bounce">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>
+
+
+{{/* ═══════════════════════════════════════════════
+     STATS BAR
+═══════════════════════════════════════════════ */}}
+<section class="bg-forest-800 text-white py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold font-serif text-white">2</p>
+        <p class="text-forest-300 text-sm mt-1 font-medium">{{ i18n "stats_departments" }}</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold font-serif text-white">0–6</p>
+        <p class="text-forest-300 text-sm mt-1 font-medium">{{ i18n "stats_ages" }}</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold font-serif text-white">30</p>
+        <p class="text-forest-300 text-sm mt-1 font-medium">{{ i18n "stats_capacity" }}</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold font-serif text-white">2h+</p>
+        <p class="text-forest-300 text-sm mt-1 font-medium">{{ i18n "stats_outdoor" }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{{/* ═══════════════════════════════════════════════
+     ABOUT TEASER
+═══════════════════════════════════════════════ */}}
+<section class="py-24 bg-sand-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="section-label">{{ i18n "section_about_label" }}</span>
+        <h2 class="section-title mb-6">{{ i18n "section_about_title" }}</h2>
+        <p class="section-body mb-6">
+          {{ if eq .Site.Language.Lang "nb" }}
+          Blakstad Naturbarnehage er ein utvida barnehage med to avdelingar i dei tidlegare skulelokala i Tusvik.
+          Vi tilbyr eit varmt, stimulerande og naturbasert miljø for barn frå 0 til 6 år, med eige gymsal, stor grønnsakshage og tilgang til flotte turområde.
+          {{ else }}
+          Blakstad Nature Kindergarten is an expanded kindergarten with two departments in the former school buildings in Tusvik.
+          We offer a warm, stimulating and nature-based environment for children from 0 to 6 years, with its own gymnasium, large vegetable garden and access to beautiful hiking areas.
+          {{ end }}
+        </p>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          {{ $depts := slice
+            (dict "name" (cond (eq $.Site.Language.Lang "nb") "Småbarnsavdeling" "Toddler Department") "detail" (cond (eq $.Site.Language.Lang "nb") "0–3 år · 12 plassar" "0–3 years · 12 places"))
+            (dict "name" (cond (eq $.Site.Language.Lang "nb") "Storbarnsavdeling" "Pre-school Department") "detail" (cond (eq $.Site.Language.Lang "nb") "3–6 år · 18 plassar" "3–6 years · 18 places"))
+          }}
+          {{ range $depts }}
+          <div class="bg-white rounded-2xl p-4 shadow-sm border border-sand-100">
+            <p class="font-semibold text-forest-900 text-sm">{{ .name }}</p>
+            <p class="text-gray-500 text-xs mt-1">{{ .detail }}</p>
+          </div>
+          {{ end }}
+        </div>
+        <a href="{{ "/om/" | relLangURL }}" class="btn-primary">
+          {{ if eq .Site.Language.Lang "nb" }}Les meir om barnehagen{{ else }}Learn more{{ end }}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+
+      {{/* Visual card stack */}}
+      <div class="relative hidden md:block">
+        <div class="relative w-full aspect-square max-w-md mx-auto">
+          {{/* Background card */}}
+          <div class="absolute top-8 right-0 w-72 h-72 rounded-3xl bg-forest-100 rotate-6"></div>
+          {{/* Main card */}}
+          <div class="absolute inset-0 w-72 h-72 rounded-3xl bg-gradient-to-br from-forest-700 to-forest-900 shadow-2xl flex items-center justify-center">
+            <div class="text-center text-white p-8">
+              <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                </svg>
+              </div>
+              <p class="font-serif text-2xl font-bold mb-1">{{ if eq .Site.Language.Lang "nb" }}Naturen er klasserommet{{ else }}Nature is the classroom{{ end }}</p>
+              <p class="text-white/70 text-sm">{{ if eq .Site.Language.Lang "nb" }}Kvart tre, kvar stein, kvart bekk er ein læringsarena{{ else }}Every tree, stone, and stream is a learning space{{ end }}</p>
+            </div>
+          </div>
+          {{/* Floating stat chips */}}
+          <div class="absolute -bottom-4 left-4 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-xl bg-moss-500 flex items-center justify-center">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-forest-900">{{ if eq .Site.Language.Lang "nb" }}Ute kvar dag{{ else }}Outdoors every day{{ end }}</p>
+              <p class="text-xs text-gray-400">{{ if eq .Site.Language.Lang "nb" }}Min. 2 timar{{ else }}Min. 2 hours{{ end }}</p>
+            </div>
+          </div>
+          <div class="absolute -top-4 right-8 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-xl bg-sand-200 flex items-center justify-center">
+              <svg class="w-4 h-4 text-sand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-forest-900">{{ if eq .Site.Language.Lang "nb" }}Sidan 2018{{ else }}Since 2018{{ end }}</p>
+              <p class="text-xs text-gray-400">{{ if eq .Site.Language.Lang "nb" }}Forskardagar{{ else }}Science Days{{ end }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{{/* ═══════════════════════════════════════════════
+     FEATURES GRID
+═══════════════════════════════════════════════ */}}
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="section-label">{{ if eq .Site.Language.Lang "nb" }}Kvifor velje oss{{ else }}Why choose us{{ end }}</span>
+      <h2 class="section-title">
+        {{ if eq .Site.Language.Lang "nb" }}Det beste for ditt barn{{ else }}The best for your child{{ end }}
+      </h2>
+    </div>
+
+    {{ $features := slice
+      (dict
+        "icon" "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064'/>"
+        "nb_title" "Naturbasert læring"
+        "en_title" "Nature-based Learning"
+        "nb_body" "Kvart dag er ei oppdaging. Turlog, Tuvatnet, gapahuken og skogen rundt barnehagen er vår aller beste læringsarena."
+        "en_body" "Every day is a discovery. Forest trails, Lake Tuvatnet, and the surrounding wilderness are our ultimate classroom."
+        "color" "forest"
+      )
+      (dict
+        "icon" "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'/>"
+        "nb_title" "Mestring og sjølvtillit"
+        "en_title" "Mastery and Self-confidence"
+        "nb_body" "Vi legg til rette for at kvart barn kan oppleve meistring — på eigne premissar, i sitt eige tempo, i trygge omgjevnadar."
+        "en_body" "We facilitate mastery experiences for every child — on their own terms, at their own pace, in safe surroundings."
+        "color" "moss"
+      )
+      (dict
+        "icon" "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'/>"
+        "nb_title" "Sunn og god mat"
+        "en_title" "Healthy, Wholesome Food"
+        "nb_body" "Eiga grønnsakshage med poteter, gulrøter og meir. Fokus på frukt, fisk og gode matvanar som varer livet ut."
+        "en_body" "Our own vegetable garden with potatoes, carrots and more. Focus on fruit, fish and healthy habits that last a lifetime."
+        "color" "sand"
+      )
+      (dict
+        "icon" "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z'/>"
+        "nb_title" "Engasjert personale"
+        "en_title" "Engaged Staff"
+        "nb_body" "Styrar Berit Elisabeth Hanken og heile teamet brenner for barna og for barnehagen sin visjon om naturbasert mestring."
+        "en_body" "Director Berit Elisabeth Hanken and the whole team are passionate about the children and the kindergarten's vision of nature-based mastery."
+        "color" "forest"
+      )
+      (dict
+        "icon" "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'/>"
+        "nb_title" "Forskardagar"
+        "en_title" "Science Days"
+        "nb_body" "Sidan hausten 2018 arrangerer vi Forskardagar der barna utforskar verda gjennom eksperiment og undring."
+        "en_body" "Since autumn 2018 we hold Science Days where children explore the world through experiments and wonder."
+        "color" "moss"
+      )
+      (dict
+        "icon" "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'/>"
+        "nb_title" "Rike tradisjonar"
+        "en_title" "Rich Traditions"
+        "nb_body" "Lucia-framføring, FN-kafê, karneval, julefest og mykje meir — eit rikt kulturliv som barna hugsar heile livet."
+        "en_body" "Lucia performance, UN café, carnival, Christmas party and much more — a rich cultural life children remember forever."
+        "color" "sand"
+      )
+    }}
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range $features }}
+      {{ $color := .color }}
+      <div class="card p-7 group">
+        <div class="w-12 h-12 rounded-2xl mb-5 flex items-center justify-center
+          {{ if eq $color "forest" }}bg-forest-100 text-forest-700 group-hover:bg-forest-700 group-hover:text-white
+          {{ else if eq $color "moss" }}bg-moss-400/20 text-moss-600 group-hover:bg-moss-500 group-hover:text-white
+          {{ else }}bg-sand-100 text-sand-700 group-hover:bg-sand-400 group-hover:text-white{{ end }}
+          transition-all duration-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {{ .icon | safeHTML }}
+          </svg>
+        </div>
+        <h3 class="font-serif font-bold text-lg text-forest-900 mb-2">
+          {{ if eq $.Site.Language.Lang "nb" }}{{ .nb_title }}{{ else }}{{ .en_title }}{{ end }}
+        </h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          {{ if eq $.Site.Language.Lang "nb" }}{{ .nb_body }}{{ else }}{{ .en_body }}{{ end }}
+        </p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+
+{{/* ═══════════════════════════════════════════════
+     NATURE TEASER — full bleed green
+═══════════════════════════════════════════════ */}}
+<section class="py-24 bg-forest-800 text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-5"
+       style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="section-label text-forest-400">{{ i18n "section_nature_label" }}</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white leading-tight mb-6">
+          {{ i18n "section_nature_title" }}
+        </h2>
+        <p class="text-forest-200 text-lg leading-relaxed mb-8">
+          {{ if eq .Site.Language.Lang "nb" }}
+          Vi ynskjer at borna skal bli glad i naturen på deira eigne premissar. Nærmiljøet til barnehagen er svært bra med nærleik til Tuvatnet, skogen, fotballbana, gapahuk og sjø.
+          {{ else }}
+          We want children to grow fond of nature on their own terms. The kindergarten's local environment is excellent, with proximity to Lake Tuvatnet, forest, football pitch, wilderness shelter and the sea.
+          {{ end }}
+        </p>
+        <div class="grid grid-cols-2 gap-3 mb-8">
+          {{ $activities := slice
+            (dict "nb" "Mat på bål" "en" "Campfire cooking")
+            (dict "nb" "Turar til Tuvatnet" "en" "Walks to Tuvatnet")
+            (dict "nb" "Bading om sommaren" "en" "Summer swimming")
+            (dict "nb" "Ski og akebrett" "en" "Skiing & sledding")
+            (dict "nb" "Tur til fjøra" "en" "Seaside trips")
+            (dict "nb" "Truge-tur" "en" "Snowshoe hiking")
+          }}
+          {{ range $activities }}
+          <div class="flex items-center gap-2 text-sm text-forest-200">
+            <svg class="w-4 h-4 text-forest-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            {{ if eq $.Site.Language.Lang "nb" }}{{ .nb }}{{ else }}{{ .en }}{{ end }}
+          </div>
+          {{ end }}
+        </div>
+        <a href="{{ "/natur/" | relLangURL }}" class="btn-white">
+          {{ if eq .Site.Language.Lang "nb" }}Utforsk naturbarnehagen{{ else }}Explore our nature approach{{ end }}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+      {{/* Activity bubbles visual */}}
+      <div class="grid grid-cols-2 gap-4">
+        {{ $cards := slice
+          (dict "nb_title" "Tuvatnet" "en_title" "Lake Tuvatnet" "nb_sub" "Bading, båt og svaner" "en_sub" "Swimming, boats & swans" "emoji" "🦢")
+          (dict "nb_title" "Skogen" "en_title" "The Forest" "nb_sub" "Dyre- og fugleliv" "en_sub" "Wildlife & birdlife" "emoji" "🦊")
+          (dict "nb_title" "Gapahuken" "en_title" "Wilderness Shelter" "nb_sub" "Turar i Tudalen" "en_sub" "Hikes in Tudalen" "emoji" "🏕️")
+          (dict "nb_title" "Grønnsakshagen" "en_title" "Vegetable Garden" "nb_sub" "Poteter, gulrøter, erter" "en_sub" "Potatoes, carrots, peas" "emoji" "🥕")
+        }}
+        {{ range $cards }}
+        <div class="bg-forest-700/50 border border-forest-600/40 rounded-2xl p-5 backdrop-blur-sm hover:bg-forest-600/50 transition-colors">
+          <span class="text-3xl mb-3 block">{{ .emoji }}</span>
+          <p class="font-semibold text-white text-sm">
+            {{ if eq $.Site.Language.Lang "nb" }}{{ .nb_title }}{{ else }}{{ .en_title }}{{ end }}
+          </p>
+          <p class="text-forest-300 text-xs mt-1">
+            {{ if eq $.Site.Language.Lang "nb" }}{{ .nb_sub }}{{ else }}{{ .en_sub }}{{ end }}
+          </p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{{/* ═══════════════════════════════════════════════
+     TESTIMONIAL / QUOTE
+═══════════════════════════════════════════════ */}}
+<section class="py-20 bg-sand-100">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <svg class="w-10 h-10 text-forest-300 mx-auto mb-6" fill="currentColor" viewBox="0 0 32 32">
+      <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
+    </svg>
+    <blockquote class="text-2xl md:text-3xl font-serif font-medium text-forest-900 leading-relaxed mb-6">
+      {{ if eq .Site.Language.Lang "nb" }}
+      "Mestring med naturen som leike- og læringsarena."
+      {{ else }}
+      "Mastery through nature as playground and learning arena."
+      {{ end }}
+    </blockquote>
+    <p class="text-forest-600 font-semibold">
+      {{ if eq .Site.Language.Lang "nb" }}Visjonen vår{{ else }}Our vision{{ end }}
+    </p>
+  </div>
+</section>
+
+
+{{/* ═══════════════════════════════════════════════
+     CTA BANNER
+═══════════════════════════════════════════════ */}}
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-br from-forest-800 to-forest-900 rounded-3xl px-8 py-16 text-center relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10"
+           style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+      <div class="relative z-10">
+        <span class="inline-flex items-center gap-2 text-forest-300 text-sm font-semibold tracking-widest uppercase mb-4">
+          <span class="w-6 h-px bg-forest-400"></span>
+          {{ if eq .Site.Language.Lang "nb" }}Ledige plassar{{ else }}Available places{{ end }}
+          <span class="w-6 h-px bg-forest-400"></span>
+        </span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+          {{ if eq .Site.Language.Lang "nb" }}Gi barnet ditt den beste starten{{ else }}Give your child the best start{{ end }}
+        </h2>
+        <p class="text-forest-200 text-lg mb-10 max-w-xl mx-auto">
+          {{ if eq .Site.Language.Lang "nb" }}
+          Meld deg på ventelista i dag og sikre din plass i Blakstad Naturbarnehage.
+          {{ else }}
+          Sign up for the waiting list today and secure your place at Blakstad Nature Kindergarten.
+          {{ end }}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="{{ "/campaign/pamelding/" | relLangURL }}" class="btn-white text-base px-8 py-4">
+            {{ i18n "nav_enroll" }}
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="{{ "/kontakt/" | relLangURL }}"
+             class="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/30 text-white font-semibold text-base hover:border-white/60 hover:bg-white/10 transition-all">
+            {{ if eq .Site.Language.Lang "nb" }}Ta kontakt{{ else }}Get in touch{{ end }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

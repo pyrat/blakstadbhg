@@ -1,0 +1,29 @@
+[[main]]
+name   = "Om barnehagen"
+url    = "/om/"
+weight = 1
+
+[[main]]
+name   = "Naturbarnehage"
+url    = "/natur/"
+weight = 2
+
+[[main]]
+name   = "Sunn mat"
+url    = "/mat/"
+weight = 3
+
+[[main]]
+name   = "Tradisjonar"
+url    = "/tradisjonar/"
+weight = 4
+
+[[main]]
+name   = "Dokument"
+url    = "/dokument/"
+weight = 5
+
+[[main]]
+name   = "Kontakt"
+url    = "/kontakt/"
+weight = 6

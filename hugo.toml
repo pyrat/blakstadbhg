@@ -1,0 +1,47 @@
+baseURL = "https://pyrat.github.io/blakstadbhg/"
+title   = "Blakstad Naturbarnehage"
+
+defaultContentLanguage = "nb"
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.nb]
+    languageName = "Norsk"
+    languageCode = "nb"
+    contentDir   = "content"
+    weight       = 1
+    title        = "Blakstad Naturbarnehage"
+    [languages.nb.params]
+      tagline = "Mestring med naturen som leike- og læringsarena"
+
+  [languages.en]
+    languageName = "English"
+    languageCode = "en"
+    contentDir   = "content-en"
+    weight       = 2
+    title        = "Blakstad Nature Kindergarten"
+    [languages.en.params]
+      tagline = "Mastery through nature as playground and learning arena"
+
+[params]
+  description  = "Blakstad Naturbarnehage – ein avdelings barnehage i naturskjønne omgjevnadar i Tusvik, Sykkylven."
+  address      = "Sørestrandvegen 1235, 6222 Ikornnes"
+  phone        = "91 89 87 60"
+  email        = "berit.hanken@sykkylven.kommune.no"
+  instagram    = "https://www.instagram.com/blakstadnaturbarnehage/"
+  facebook     = "https://www.facebook.com/blakstadnaturbarnehage"
+  contactName  = "Berit Elisabeth Hanken"
+  contactTitle = "Styrar"
+
+[build]
+  [build.buildStats]
+    enable = true
+
+[minify]
+  disableXML = true
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false

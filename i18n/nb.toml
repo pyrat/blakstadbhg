@@ -1,0 +1,110 @@
+[nav_home]
+other = "Heim"
+
+[nav_about]
+other = "Om barnehagen"
+
+[nav_nature]
+other = "Naturbarnehage"
+
+[nav_food]
+other = "Sunn mat"
+
+[nav_traditions]
+other = "Tradisjonar"
+
+[nav_docs]
+other = "Dokument"
+
+[nav_contact]
+other = "Kontakt"
+
+[nav_enroll]
+other = "Meld deg på"
+
+[hero_cta_primary]
+other = "Planlegg eit besøk"
+
+[hero_cta_secondary]
+other = "Les meir om oss"
+
+[stats_departments]
+other = "Avdelingar"
+
+[stats_ages]
+other = "Alder 0 – 6 år"
+
+[stats_capacity]
+other = "Plassar totalt"
+
+[stats_outdoor]
+other = "Ute kvar dag"
+
+[section_about_label]
+other = "Om oss"
+
+[section_about_title]
+other = "Ein barnehage i hjartet av naturen"
+
+[section_nature_label]
+other = "Naturbarnehage"
+
+[section_nature_title]
+other = "Naturen som leike- og læringsarena"
+
+[section_food_label]
+other = "Sunn mat"
+
+[section_food_title]
+other = "Ekte mat, dyrka med kjærleik"
+
+[section_traditions_label]
+other = "Tradisjonar"
+
+[section_traditions_title]
+other = "Tradisjonar og aktivitetar gjennom året"
+
+[section_docs_label]
+other = "Ressursar"
+
+[section_docs_title]
+other = "Dokument og nyttige lenker"
+
+[section_contact_label]
+other = "Kontakt"
+
+[section_contact_title]
+other = "Ta kontakt med oss"
+
+[campaign_title]
+other = "Sikre plass i dag"
+
+[campaign_subtitle]
+other = "Meld barnet ditt på venteliste for Blakstad Naturbarnehage"
+
+[form_name]
+other = "Namn (foreldre/foresatte)"
+
+[form_email]
+other = "E-postadresse"
+
+[form_phone]
+other = "Telefonnummer"
+
+[form_child_name]
+other = "Barnets namn"
+
+[form_child_dob]
+other = "Barnets fødselsdato"
+
+[form_start_date]
+other = "Ønskt startdato"
+
+[form_message]
+other = "Ekstra informasjon (valfritt)"
+
+[form_submit]
+other = "Send påmelding"
+
+[footer_rights]
+other = "Alle rettar reservert"

@@ -1,0 +1,110 @@
+[nav_home]
+other = "Home"
+
+[nav_about]
+other = "About"
+
+[nav_nature]
+other = "Nature Kindergarten"
+
+[nav_food]
+other = "Healthy Food"
+
+[nav_traditions]
+other = "Traditions"
+
+[nav_docs]
+other = "Documents"
+
+[nav_contact]
+other = "Contact"
+
+[nav_enroll]
+other = "Enroll"
+
+[hero_cta_primary]
+other = "Plan a Visit"
+
+[hero_cta_secondary]
+other = "Learn More"
+
+[stats_departments]
+other = "Departments"
+
+[stats_ages]
+other = "Ages 0 – 6"
+
+[stats_capacity]
+other = "Total Places"
+
+[stats_outdoor]
+other = "Outdoors Daily"
+
+[section_about_label]
+other = "About Us"
+
+[section_about_title]
+other = "A Kindergarten at the Heart of Nature"
+
+[section_nature_label]
+other = "Nature Kindergarten"
+
+[section_nature_title]
+other = "Nature as Playground and Learning Arena"
+
+[section_food_label]
+other = "Healthy Food"
+
+[section_food_title]
+other = "Real Food, Grown with Love"
+
+[section_traditions_label]
+other = "Traditions"
+
+[section_traditions_title]
+other = "Traditions and Activities Throughout the Year"
+
+[section_docs_label]
+other = "Resources"
+
+[section_docs_title]
+other = "Documents and Useful Links"
+
+[section_contact_label]
+other = "Contact"
+
+[section_contact_title]
+other = "Get in Touch"
+
+[campaign_title]
+other = "Secure a Place Today"
+
+[campaign_subtitle]
+other = "Register your child on the waiting list for Blakstad Nature Kindergarten"
+
+[form_name]
+other = "Parent / Guardian Name"
+
+[form_email]
+other = "Email Address"
+
+[form_phone]
+other = "Phone Number"
+
+[form_child_name]
+other = "Child's Name"
+
+[form_child_dob]
+other = "Child's Date of Birth"
+
+[form_start_date]
+other = "Desired Start Date"
+
+[form_message]
+other = "Additional Information (optional)"
+
+[form_submit]
+other = "Submit Registration"
+
+[footer_rights]
+other = "All rights reserved"

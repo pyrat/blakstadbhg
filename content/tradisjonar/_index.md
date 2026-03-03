@@ -52,4 +52,4 @@ Forskardagane er for alle, men hovudsakeleg retta mot storbarnsavdelinga.
 
 Vi set stor pris på foreldre som vil bidra og engasjere seg. Gjennom **Foreldrerådet** og **Samarbeidsutvalet** har foreldra reell innverknad på barnehagen sin kvardag og utvikling.
 
-Følg oss gjerne på [Instagram](https://www.instagram.com/blakstadnaturbarnehage/) og dei kommunale barnehagane si Facebook-side for bilete og oppdateringar frå kvardagen!
+Følg oss gjerne på [Instagram](https://www.instagram.com/blakstadnaturbarnehage/) for bilete og oppdateringar frå kvardagen!

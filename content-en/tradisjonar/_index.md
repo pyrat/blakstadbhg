@@ -52,4 +52,4 @@ Science Days are for everyone, but primarily aimed at the pre-school department.
 
 We greatly appreciate parents who want to contribute and engage. Through the **Parent Council** and the **Cooperation Committee**, parents have real influence on the kindergarten's daily life and development.
 
-Follow us on [Instagram](https://www.instagram.com/blakstadnaturbarnehage/) and the municipal kindergartens' Facebook page for photos and updates from daily life!
+Follow us on [Instagram](https://www.instagram.com/blakstadnaturbarnehage/) for photos and updates from daily life!

@@ -26,8 +26,10 @@
         {{ range .Site.Menus.main }}
         <a href="{{ .URL }}"
            class="px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-150
-                  {{ if $currentPage.IsHome }}text-white/90 hover:text-white hover:bg-white/10
-                  {{ else }}text-gray-700 hover:text-forest-700 hover:bg-forest-50{{ end }}">
+                  {{ if not $currentPage.IsHome }}text-gray-700 hover:text-forest-700 hover:bg-forest-50{{ end }}"
+           {{ if $currentPage.IsHome }}
+           :class="scrolled ? 'text-gray-700 hover:text-forest-700 hover:bg-forest-50' : 'text-white/90 hover:text-white hover:bg-white/10'"
+           {{ end }}>
           {{ .Name }}
         </a>
         {{ end }}
@@ -44,8 +46,11 @@
                     {{ if eq .Language.Lang $.Site.Language.Lang }}
                       bg-forest-800 text-white
                     {{ else }}
-                      {{ if $.IsHome }}text-white/70 hover:text-white hover:bg-white/10{{ else }}text-gray-500 hover:text-forest-700{{ end }}
-                    {{ end }}">
+                      {{ if not $.IsHome }}text-gray-500 hover:text-forest-700{{ end }}
+                    {{ end }}"
+             {{ if and (ne .Language.Lang $.Site.Language.Lang) $.IsHome }}
+             :class="scrolled ? 'text-gray-500 hover:text-forest-700' : 'text-white/70 hover:text-white hover:bg-white/10'"
+             {{ end }}>
             {{ .Language.Lang }}
           </a>
           {{ end }}

@@ -30,7 +30,6 @@ Nedanfor finn du alle viktige dokument for Blakstad Naturbarnehage.
 ## Sosiale medium
 
 - [Instagram — @blakstadnaturbarnehage](https://www.instagram.com/blakstadnaturbarnehage/)
-- [Facebook — kommunale barnehagar i Sykkylven](https://www.facebook.com/)
 
 ## Om Sykkylven kommune
 

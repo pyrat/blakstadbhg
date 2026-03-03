@@ -6,7 +6,7 @@
     <div class="flex items-center justify-between h-16 md:h-20">
 
       {{/* Logo */}}
-      <a href="{{ "/" | relLangURL }}" class="flex items-center gap-2 group" aria-label="{{ .Site.Title }}">
+      <a href="{{ "" | relLangURL }}" class="flex items-center gap-2 group" aria-label="{{ .Site.Title }}">
         <div class="w-9 h-9 rounded-xl bg-forest-800 flex items-center justify-center shadow-md group-hover:bg-forest-700 transition-colors">
           <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -62,7 +62,7 @@
         </div>
         {{ end }}
 
-        <a href="{{ "/campaign/pamelding/" | relLangURL }}" class="btn-primary text-xs">
+        <a href="{{ "campaign/pamelding/" | relLangURL }}" class="btn-primary text-xs">
           {{ i18n "nav_enroll" }}
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -114,7 +114,7 @@
           </a>
           {{ end }}
         </div>
-        <a href="{{ "/campaign/pamelding/" | relLangURL }}" class="btn-primary text-xs py-2.5">
+        <a href="{{ "campaign/pamelding/" | relLangURL }}" class="btn-primary text-xs py-2.5">
           {{ i18n "nav_enroll" }}
         </a>
       </div>
